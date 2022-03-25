@@ -50,7 +50,7 @@ def services(request):
             elif int(weight) >= 25:
                 driveby = driver.objects.filter(vehicle='Truck').first()
             services = service(
-                name=name, email=email, phone=phone, address=address, weight=weight, driveby=driveby)
+                name=name, email=email, phone=phone, address=address, weight=weight, user=request.user, driveby=driveby)
             services.save()
             messages.success(request, 'Your data has been sent successfully!')
             email_add = driveby.email
