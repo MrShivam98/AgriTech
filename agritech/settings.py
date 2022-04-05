@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'home.apps.HomeConfig'
 ]
 
@@ -140,3 +141,7 @@ EMAIL_POST = 587
 EMAIL_HOST_USER = 'agritech1998@gmail.com'
 EMAIL_HOST_PASSWORD = 'agritech@123'
 EMAIL_USE_TLS = True
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer')
+# }

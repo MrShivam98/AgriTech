@@ -22,5 +22,6 @@ admin.site.index_title = 'Welcome to AgriTech Admin Panel'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls'))
+    path('', include('home.urls')),
+    path('api/', include('home.api.urls'))
 ]

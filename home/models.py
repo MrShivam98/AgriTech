@@ -11,7 +11,7 @@ class Contact(models.Model):
     email = models.EmailField(max_length=50)
     phone = models.CharField(max_length=13)
     content = models.TextField()
-    time = models.DateTimeField(auto_now_add=True, blank=True)
+    time = models.DateTimeField(default=now, blank=True)
 
     def __str__(self):
         return self.name + ' - ' + self.email
@@ -35,8 +35,8 @@ class service(models.Model):
     phone = models.CharField(max_length=13)
     address = models.TextField(max_length=100)
     weight = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    driveby = models.ForeignKey(driver, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='user')
+    driveby = models.ForeignKey(driver, on_delete=models.DO_NOTHING, related_name='driveby')
     timeStamp = models.DateTimeField(default=now, blank=True)
 
     def __str__(self):

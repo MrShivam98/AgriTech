@@ -35,7 +35,9 @@ def services(request):
         address = request.POST['address']
         weight = request.POST['weight']
         if len(name) < 3:
-            messages.error(request, 'Name should not be less than 3!')
+            messages.error(request, 'Name should not be less than 3 characters!')
+        if len(email) < 5:
+            messages.error(request, 'email should not be less than 5 characters!')
         if len(phone) < 10:
             messages.error(request, 'Phone number should be atleast 10 digits!')
         if len(address) < 10:
