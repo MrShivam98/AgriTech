@@ -22,6 +22,10 @@ def home(request):
     return render(request, 'home/index.html')
 
 
+def technologies(request):
+    return render(request, 'home/technologies.html')
+
+
 def about(request):
     return render(request, 'home/about.html')
 
