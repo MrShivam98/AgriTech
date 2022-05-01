@@ -9,73 +9,18 @@
         New Farming Technologies
     </h1>
     <br>
+    {% for tech in tech_list %}
     <hr class="featurette-divider">
-
     <div class="row featurette my-5">
         <div class="col-md-7">
-        <h2 class="featurette-heading"><a href="https://en.wikipedia.org/wiki/Hydroponics">Hydroponics</a></h2>
-        <p class="lead">Hydroponics is a type of horticulture and a subset of hydroculture which involves growing plants, usually crops, without soil, by using mineral nutrient solutions in an aqueous solvent.</p>
-        </div>
-
-        <div class="col-md-5">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8fWSfEBGobI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-    </div>
-
-    
-    <hr class="featurette-divider">
-
-    <div class="row featurette my-5">
-        <div class="col-md-7">
-        <h2 class="featurette-heading"><a href="https://en.wikipedia.org/wiki/Aquaponics">Aquaponics</a></h2>
-        <p class="lead">Aquaponics is a food production system that couples aquaculture with hydroponics whereby the nutrient-rich aquaculture water is fed to hydroponically-grown plants, where nitrifying bacteria convert ammonia into nitrates.</p>
-        </div>
-
-        <div class="col-md-5">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/018rIAPkTH4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette my-5">
-        <div class="col-md-7">
-        <h2 class="featurette-heading"><a href="https://en.wikipedia.org/wiki/Fungiculture">Fungiculture</a></h2>
-        <p class="lead">Fungiculture is the cultivation of mushrooms and other fungi. Cultivating fungi can yield food, medicine, construction materials and other products. A mushroom farm is in the business of growing fungi.</p>
+        <h2 class="featurette-heading"><a target="_blank" href={{ tech.title_url }}>{{ tech.title }}</a></h2>
+        <p class="lead">{{ tech.description }}</p>
         </div>
         <div class="col-md-5">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/oiVZ2APGSNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+            <iframe width="560" height="315" src={{ tech.iframe }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette my-5">
-        <div class="col-md-7">
-        <h2 class="featurette-heading"><a href="https://en.wikipedia.org/wiki/Beekeeping">Beekeeping</a></h2>
-        <p class="lead">Beekeeping (or apiculture) is the maintenance of bee colonies, commonly in man-made hives, by humans. Most such bees are honey bees in the genus Apis, but other honey-producing bees such as Melipona stingless bees are also kept. A beekeeper (or apiarist) keeps bees in order to collect their honey and other products that the hive produce (including beeswax, propolis, flower pollen, bee pollen, and royal jelly), to pollinate crops, or to produce bees for sale to other beekeepers.</p>
-        </div>
-        <div class="col-md-5">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dzf2a0mcCvE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette my-5">
-        <div class="col-md-7">
-        <h2 class="featurette-heading"><a href="https://en.wikipedia.org/wiki/Fish_farming">Fish farming</a><a href="https://dof.gov.in/blue-revolution"> (Blue Revolution)</a></h2>
-        <p class="lead">Fish farming or pisciculture involves commercial breeding of fish, usually for food, in fish tanks or artificial enclosures such as fish ponds. It is a particular type of aquaculture, which is the controlled cultivation and harvesting of aquatic animals such as fish, crustaceans, molluscs and so on, in natural or pseudo-natural environment.</p>
-        </div>
-        <div class="col-md-5">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/GRY6FgWoNQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock body %}

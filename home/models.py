@@ -17,6 +17,18 @@ class Contact(models.Model):
         return self.name + ' - ' + self.email
 
 
+class technology(models.Model):
+    sno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=30)
+    title_url = models.CharField(max_length=100)
+    description = models.TextField()
+    iframe = models.CharField(max_length=300)
+    time = models.DateTimeField(default=now, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
 class driver(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(primary_key=True, max_length=50)

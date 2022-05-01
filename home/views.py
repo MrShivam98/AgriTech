@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from home.models import Contact
+from home.models import technology
 from home.models import driver
 from home.models import service
 from django.contrib import messages
@@ -23,7 +24,8 @@ def home(request):
 
 
 def technologies(request):
-    return render(request, 'home/technologies.html')
+    data = {'tech_list': list(technology.objects.values())}
+    return render(request, 'home/technologies.html', data)
 
 
 def about(request):

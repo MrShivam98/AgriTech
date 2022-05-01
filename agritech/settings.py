@@ -126,6 +126,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES':['rest_framework.renderers.JSONRenderer']
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -141,7 +145,3 @@ EMAIL_POST = 587
 EMAIL_HOST_USER = 'agritech1998@gmail.com'
 EMAIL_HOST_PASSWORD = 'agritech@123'
 EMAIL_USE_TLS = True
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer')
-# }

@@ -1,9 +1,19 @@
+from home.api.serializers import TechnologySerializers
 from home.api.serializers import ContactSerializers
 from home.api.serializers import ServiceSerializers
+from home.models import technology
 from home.models import driver
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
+
+
+class TechnologyViewSet(viewsets.ViewSet):
+
+    def list(self, request):
+        tech = technology.objects.all()
+        serializer = TechnologySerializers(tech, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ContactViewSet(viewsets.ViewSet):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Contact, driver, service
+from home.models import Contact, technology, driver, service
 
 # Register your models here.
-admin.site.register((Contact, driver, service))
+admin.site.register((Contact, technology, driver, service))

@@ -1,6 +1,13 @@
+from home.models import technology
 from home.models import Contact
 from home.models import service
 from rest_framework import serializers
+
+
+class TechnologySerializers(serializers.ModelSerializer):
+    class Meta:
+        model = technology
+        fields = ['sno', 'title', 'title_url', 'description', 'iframe']
 
 
 class ContactSerializers(serializers.ModelSerializer):
