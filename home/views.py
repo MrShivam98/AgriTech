@@ -24,8 +24,7 @@ def home(request):
 
 
 def technologies(request):
-    data = {'tech_list': list(technology.objects.values())}
-    return render(request, 'home/technologies.html', data)
+    return render(request, 'home/technologies.html', {'tech_list': list(technology.objects.values())})
 
 
 def about(request):
