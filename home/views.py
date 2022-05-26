@@ -23,12 +23,39 @@ def home(request):
     return render(request, 'home/index.html')
 
 
+def govt(request):
+    return render(request, 'home/govt.html')
+
+
 def technologies(request):
     return render(request, 'home/technologies.html', {'tech_list': list(technology.objects.values())})
 
 
 def about(request):
     return render(request, 'home/about.html')
+
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        content = request.POST['content']
+        if len(name) < 3 or len(email) < 5 or len(phone) < 10 or len(content) < 5:
+            messages.error(request, 'Please fill the form correctly!')
+        else:
+            contact = Contact(name=name, email=email,
+                              phone=phone, content=content)
+            contact.save()
+            messages.success(
+                request, 'Your message has been successfully sent!')
+    return render(request, 'home/contact.html')
+
+
+def jobs(request):
+    if request.user.groups.filter(name='driver').exists():
+        return render(request, 'home/jobs.html', {'service_list': list(service.objects.values())})
+    return redirect('home')
 
 
 @login_required(login_url='home')
@@ -64,23 +91,6 @@ def services(request):
         sendEmail('Collect Stubble', 'Name - {} \nPhone Number- {} \nAddress - {} \nWeight - {} \nCollect stubble as soon as possible.'.format(name, phone, address, weight), email_add)
         sendEmail('AgriTech Stubble Collection', 'Driver Name - {} \nPhone Number- {} \nVehicle - {} \nDriver will be in touch with you as soon as possible.'.format(driveby.name, driveby.phone, driveby.vehicle), email)
     return render(request, 'home/services.html')
-
-
-def contact(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        content = request.POST['content']
-        if len(name) < 3 or len(email) < 5 or len(phone) < 10 or len(content) < 5:
-            messages.error(request, 'Please fill the form correctly!')
-        else:
-            contact = Contact(name=name, email=email,
-                              phone=phone, content=content)
-            contact.save()
-            messages.success(
-                request, 'Your message has been successfully sent!')
-    return render(request, 'home/contact.html')
 
 
 def signup(request):

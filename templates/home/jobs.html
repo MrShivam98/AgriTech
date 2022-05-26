@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+
+{% block title %}Jobs{% endblock title %} 
+{% block jobsactive %} active {% endblock jobsactive %}
+{%block body %}
+<div class="container mt-5 text-center">
+    <h2 class="pb-2 border-bottom my-5">All Jobs</h2>
+    <table class="table table-light">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">weight</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for service in service_list %}
+          <tr>
+            <th scope="row">{{ service.sno }}</th>
+            <td>{{ service.name }}</td>
+            <td>{{ service.email }}</td>
+            <td>{{ service.phone }}</td>
+            <td>{{ service.address }}</td>
+            <td>{{ service.weight }}</td>
+            <td>{{ service.driveby_id }}</td>
+            <td>{{ service.timeStamp }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock body %}
